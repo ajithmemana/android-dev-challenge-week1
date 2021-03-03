@@ -5,6 +5,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -53,7 +54,10 @@ private val dogData: List<Dog> by lazy {
 
 @Composable
 fun HomeScreenApp() {
-    showPetsList(dogs = dogData)
+    Column() {
+        TopAppBar(title = { Text(text = "Adopt Me") }, backgroundColor = Color.Red)
+        showPetsList(dogs = dogData)
+    }
 }
 
 
@@ -86,12 +90,4 @@ fun DogRow(dog: Dog) {
         }
 
     }
-}
-
-@Composable
-fun TopAppBar(
-    title: @Composable() () -> Unit,
-    color: Color = MaterialTheme.colors.primary,
-    navigationIcon: @Composable() (() -> Unit)? = null
-) {
 }
